@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="weather.css">
+        <script src="dailyweatherdata.js"></script>
+        <script src="weatherforecast.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"
+          integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <style>
+            canvas {
+                width: 1000px !important;
+                height: 400px !important;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <nav class = "navbar">
+            <div class = "navbar-left">Web Technologies</div>
+            <div class = "navbar-right">
+                <a href = "Homepage.html">Home</a>
+            </div>
+        </nav>
+        Longitude: <label id="lon"></label><br>
+        
+        <label for="chartType">Select Chart Type:</label>
+        <select id="chartType">
+            <option value="line">Line Chart</option>
+            <option value="bar">Bar Graph</option>
+        </select>
+
+        <canvas id="myChart"></canvas>
+
+        <script>
+            var daily = JSON.parse(dailydata_stoke);
+            document.getElementById('lon').innerHTML = daily.coord.lon;
+
+            var forecast = JSON.parse(forecast_stoke);
+            var dateList = forecast.list.map(list => list.dt_txt);
+            var temperatureList = forecast.list.map(list => list.main.temp);
+            var humidityList = forecast.list.map(list => list.main.humidity);
+
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: "line", // Default chart type
+                data: {
+                    labels: dateList,
+                    datasets: [
+                        {
+                            label: "Temperature (°C)",
+                            backgroundColor: "lightblue",
+                            borderColor: "blue",
+                            fill: false,
+                            data: temperatureList
+                        },
+                        {
+                            label: "Humidity (%)",
+                            backgroundColor: "lightgreen",
+                            borderColor: "green",
+                            fill: false,
+                            data: humidityList
+                        }
+                    ]
+                }
+            });
+
+            document.getElementById('chartType').addEventListener('change', function() {
+                chart.destroy(); // Destroy the previous chart instance
+                chart = new Chart(ctx, {
+                    type: this.value, // Get selected chart type
+                    data: {
+                        labels: dateList,
+                        datasets: [
+                            {
+                                label: "Temperature (°C)",
+                                backgroundColor: "lightblue",
+                                borderColor: "blue",
+                                fill: false,
+                                data: temperatureList
+                            },
+                            {
+                                label: "Humidity (%)",
+                                backgroundColor: "lightgreen",
+                                borderColor: "green",
+                                fill: false,
+                                data: humidityList
+                            }
+                        ]
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href= "button.css">
+    <style>
+        .button-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            margin: 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: 'Times New Roman', 'Arial Narrow', Arial, sans-serif;
+            width: 250px;           
+            height: 180px; 
+            text-align: center;
+        }
+
+
+        .button-container {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            height: calc(100vh - 60px);
+        }
+
+        .button-link img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            text-align: centre;
+            position: relative;
+            margin-top: 15px;/*add space between image and text*/
+        }
+
+        .button-link b {
+            display: block; /*text uses entire width*/
+            margin-bottom: 30px; /*add space below the text*/
+        }
+
+        .button-link:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+            
+        }
+
+        .cv-button {
+            background-color: rgb(22, 116, 211);
+            color: rgb(0, 0, 0);
+        }
+
+        .weather-button {
+            background-color: rgb(41, 161, 161);
+            color: rgb(0, 0, 0);
+        }
+
+        .login-button {
+            background-color: rgb(84, 142, 142);
+            color: rgb(0, 0, 0);
+        }
+
+        .publication-button {
+            background-color: bisque;
+            color:rgb(0, 0, 0) 
+        }
+
+        /* Center all content on the page */
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            padding: 0;
+            flex-direction: column;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class = "navbar">
+        <div class = "navbar-left">Web Technologies</div>
+        <div class = "navbar-right">
+            <a href = "Homepage.html">Home</a>
+        </div>
+    </nav>
+
+    <!-- Button container -->
+    <div class="button-container">
+        <a href="cv.html" class="button-link cv-button">
+            <img src="user.png" alt="CV icon">
+            <b>Curriculum Vitae</b>
+        </a>
+        <a href="weather.html" class="button-link weather-button">
+            <img src="weather.png" alt="Weather icon">
+            <b>Weather Information</b>
+        </a>
+        <a href="http://localhost/session.php" class="button-link login-button" target="_blank">
+            <img src="php.png" alt="Login icon">
+            <b>PHP Log-in System</b>
+        </a>
+        <a href = "http://localhost/session.php" class= "button-link publication-button" target = "_blank">
+            <img src = "publication.png" alt = "Publication icon" >
+            <b>Publication System</b>
+        </a>
+    </div>
+</body>
+</html>

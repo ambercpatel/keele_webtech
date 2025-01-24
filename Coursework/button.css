@@ -1,0 +1,63 @@
+.navbar {
+    background-color: #2c3e50;
+    color: #ffffff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-left {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.navbar-right a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar-right a:hover {
+    text-decoration: underline;
+}
+
+/* Adjust the top margin of the cv-container to accommodate the navbar */
+.cv-container {
+    margin-top: 20px;
+}
+
+.button-link hover{
+    opacity: 0.9;
+    transform: scale(1.02);
+    box-shadow: 0 5 px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cv-button {
+    background: linear-gradient(45deg, #f3dcfb, #679fe4);
+}
+
+.weather-button {
+    background: linear-gradient(45deg, #EA5A6F, #DE791E)
+}
+
+.login-button {
+    background: linear-gradient(45deg, #7117EA, #EA6060);
+}
+
+.publication-button {
+    background: linear-gradient(45deg, #FBED96, #ABECD6);
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
